@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="PathSearch" target="17" />
+      <module name="PathSearch" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.web.WebView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<VBox alignment="CENTER" prefHeight="583.0" prefWidth="574.0" spacing="20.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18" fx:controller="com.example.pathsearch.Controller">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-    </padding>
-   <WebView prefHeight="506.0" prefWidth="857.0" />
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pathsearch.Controller">
+   <TextField fx:id="textField" layoutX="42.0" layoutY="32.0" prefHeight="26.0" prefWidth="207.0" />
+   <Button fx:id="search" layoutX="273.0" layoutY="33.0" mnemonicParsing="false" onAction="#onButtonClick" text="Search" />
+   <TextArea fx:id="textArea" layoutX="46.0" layoutY="92.0" prefHeight="200.0" prefWidth="405.0" />
 
-    <Label fx:id="welcomeText" />
-</VBox>
+</AnchorPane>

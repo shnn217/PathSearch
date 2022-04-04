@@ -1,24 +1,24 @@
 package com.example.pathsearch.datamodel;
 
 public class MyFile {
-    private int fileId;
+
     private String fileName;
-    private Integer folderId;
     private String path;
+    private String type;
 
-    public MyFile(int fileId, String fileName, Integer folderId, String path) {
-        this.fileId = fileId;
+    public MyFile(String fileName, String path, String type) {
+
         this.fileName = fileName;
-        this.folderId = folderId;
         this.path = path;
+        this.type = type;
     }
 
-    public int getFileId() {
-        return fileId;
+    public String getType() {
+        return type;
     }
 
-    public void setFileId(int fileId) {
-        this.fileId = fileId;
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getFileName() {
@@ -29,13 +29,6 @@ public class MyFile {
         this.fileName = fileName;
     }
 
-    public Integer getFolderId() {
-        return folderId;
-    }
-
-    public void setFolderId(int folderId) {
-        this.folderId = folderId;
-    }
 
     public String getPath() {
         return path;

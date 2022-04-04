@@ -1,17 +1,15 @@
 package com.example.pathsearch.datamodel;
 
 public class MyFolder {
-    private int folderId;
+
     private String folderName;
-    private Integer parentId;
     private String path;
+    private String type;
 
-    public int getFolderId() {
-        return folderId;
-    }
-
-    public void setFolderId(int folderId) {
-        this.folderId = folderId;
+    public MyFolder(String folderName, String path, String type) {
+        this.folderName = folderName;
+        this.path = path;
+        this.type = type;
     }
 
     public String getFolderName() {
@@ -22,12 +20,12 @@ public class MyFolder {
         this.folderName = folderName;
     }
 
-    public Integer getParentId() {
-        return parentId;
+    public String getType() {
+        return type;
     }
 
-    public void setParentId(int parentId) {
-        this.parentId = parentId;
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getPath() {
@@ -38,10 +36,4 @@ public class MyFolder {
         this.path = path;
     }
 
-    public MyFolder(int folderId, String folderName, Integer parentId, String path) {
-        this.folderId = folderId;
-        this.folderName = folderName;
-        this.parentId = parentId;
-        this.path = path;
-    }
 }

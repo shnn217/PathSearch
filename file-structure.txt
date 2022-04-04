@@ -1,25 +1,17 @@
-1	Program Files	null	/Users/eric/test_dir/Program Files
-2	Mysql	null	/Users/eric/test_dir/Program Files/Mysql
-3	Skype	null	/Users/eric/test_dir/Program Files/Skype
-4	Documents	null	/Users/eric/test_dir/Documents
-5	Images	null	/Users/eric/test_dir/Documents/Images
-6	Works	null	/Users/eric/test_dir/Documents/Works
-7	Accountant	null	/Users/eric/test_dir/Documents/Works/Accountant
-1	.DS_Store	null	/Users/eric/test_dir/.DS_Store
-2	.DS_Store	null	/Users/eric/test_dir/Program Files/.DS_Store
-3	Mysql2.txt	null	/Users/eric/test_dir/Program Files/Mysql/Mysql2.txt
-4	.DS_Store	null	/Users/eric/test_dir/Program Files/Mysql/.DS_Store
-5	Mysql.txt	null	/Users/eric/test_dir/Program Files/Mysql/Mysql.txt
-6	.DS_Store	null	/Users/eric/test_dir/Program Files/Skype/.DS_Store
-7	Readme.txt	null	/Users/eric/test_dir/Program Files/Skype/Readme.txt
-8	Skype.txt	null	/Users/eric/test_dir/Program Files/Skype/Skype.txt
-9	.DS_Store	null	/Users/eric/test_dir/Documents/.DS_Store
-10	.DS_Store	null	/Users/eric/test_dir/Documents/Images/.DS_Store
-11	image1.txt	null	/Users/eric/test_dir/Documents/Images/image1.txt
-12	image3.txt	null	/Users/eric/test_dir/Documents/Images/image3.txt
-13	image2.txt	null	/Users/eric/test_dir/Documents/Images/image2.txt
-14	Letter.txt	null	/Users/eric/test_dir/Documents/Works/Letter.txt
-15	.DS_Store	null	/Users/eric/test_dir/Documents/Works/.DS_Store
-16	Accounting.txt	null	/Users/eric/test_dir/Documents/Works/Accountant/Accounting.txt
-17	.DS_Store	null	/Users/eric/test_dir/Documents/Works/Accountant/.DS_Store
-18	AnnualReport.txt	null	/Users/eric/test_dir/Documents/Works/Accountant/AnnualReport.txt
+d	/Users/eric/test_dir/Program Files
+d	/Users/eric/test_dir/Program Files/Mysql
+d	/Users/eric/test_dir/Program Files/Skype
+d	/Users/eric/test_dir/Documents
+d	/Users/eric/test_dir/Documents/Images
+d	/Users/eric/test_dir/Documents/Works
+d	/Users/eric/test_dir/Documents/Works/Accountant
+f	/Users/eric/test_dir/Program Files/Mysql/Mysql2.txt
+f	/Users/eric/test_dir/Program Files/Mysql/Mysql.txt
+f	/Users/eric/test_dir/Program Files/Skype/Readme.txt
+f	/Users/eric/test_dir/Program Files/Skype/Skype.txt
+f	/Users/eric/test_dir/Documents/Images/image1.txt
+f	/Users/eric/test_dir/Documents/Images/image3.txt
+f	/Users/eric/test_dir/Documents/Images/image2.txt
+f	/Users/eric/test_dir/Documents/Works/Letter.txt
+f	/Users/eric/test_dir/Documents/Works/Accountant/Accounting.txt
+f	/Users/eric/test_dir/Documents/Works/Accountant/AnnualReport.txt

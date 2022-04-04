@@ -15,8 +15,7 @@ public class FileData {
     private ArrayList<MyFolder> folderList = new ArrayList<>();
     private ArrayList<MyFile> myFileList = new ArrayList<>();
     private static String filename = "file-structure.txt";
-    private static int folderId = 1;
-    private static int fileId = 1;
+
 
     public static FileData getInstance(){
         return instance;
@@ -28,16 +27,14 @@ public class FileData {
         assert files != null;
         for (File file : files) {
             if (file.isDirectory()) {
-                MyFolder folderItem = new MyFolder(folderId, file.getName(), null, file.getCanonicalPath());
+                MyFolder folderItem = new MyFolder(file.getName(), file.getCanonicalPath(), "d");
                 instance.folderList.add(folderItem);
 //                System.out.printf(" dir: %s\t%s\t%s\t%s\n",folderId, file.getName(), null, file.getAbsolutePath());
-                folderId++;
                 getFile(file);
             } else {
-                MyFile fileItem = new MyFile(fileId, file.getName(), null, file.getAbsolutePath());
+                MyFile fileItem = new MyFile(file.getName(), file.getCanonicalPath(), "f");
                 instance.myFileList.add(fileItem);
 //                System.out.printf("file: %s\t%s\t%s\t%s\n",fileId, file.getName(), null, file.getAbsolutePath());
-                fileId++;
             }
         }
     }
@@ -52,19 +49,15 @@ public class FileData {
             while(folderIterator.hasNext() || fileIterator.hasNext()){
                 if (folderIterator.hasNext()){
                     MyFolder folderItem = folderIterator.next();
-                    bw.write(String.format("%s\t%s\t%s\t%s",
-                            folderItem.getFolderId(),
-                            folderItem.getFolderName(),
-                            folderItem.getParentId(),
+                    bw.write(String.format("%s\t%s",
+                            folderItem.getType(),
                             folderItem.getPath()));
 
                     bw.newLine();
                 }else {
                     MyFile fileItem = fileIterator.next();
-                    bw.write(String.format("%s\t%s\t%s\t%s",
-                            fileItem.getFileId(),
-                            fileItem.getFileName(),
-                            fileItem.getFolderId(),
+                    bw.write(String.format("%s\t%s",
+                            fileItem.getType(),
                             fileItem.getPath()));
 
                     bw.newLine();
@@ -77,7 +70,11 @@ public class FileData {
         }
 
     }
-//    public static Integer
+//    public static Integer preFolder(){
+//        String input;
+//
+//        return
+//    }
     public static void main(String[] args) throws IOException {
         File currentDir = new File("/Users/eric/test_dir"); // current directory
         getFile(currentDir);
