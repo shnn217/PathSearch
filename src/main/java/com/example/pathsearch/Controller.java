@@ -41,7 +41,7 @@ public class Controller{
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc3","root","password");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/file","root","password");
 
             PreparedStatement statement = connection.prepareStatement("SELECT path from node WHERE name LIKE ?");
             statement.setString(1,"%" + textField.getText() + "%");
@@ -49,8 +49,10 @@ public class Controller{
             textArea.setPrefRowCount(100);
             textArea.setPrefColumnCount(100);
             textArea.setWrapText(true);
+            textArea.setText("");
             while(rs.next()){
 //                System.out.println(rs.getString(1));
+
                 textArea.appendText(rs.getString(1) + "\n");
             }
 
@@ -61,15 +63,10 @@ public class Controller{
     }
 
 
-    public void initialize() throws IOException{
-        FileData fileData = new FileData();
-        ToDatabase toDatabase = new ToDatabase();
-        File currentDir = new File("/Users/eric/test_dir");
-        System.out.println("hihihihi");
-        fileData.getFile(currentDir);
-        fileData.storeFileData();
-        System.out.println("hihihihi");
 
+    public void initialize() throws IOException{
+
+        ToDatabase toDatabase = new ToDatabase();
 
         ArrayList<MyInput> myInputArrayList = toDatabase.readFile();
         HashMap<String, Integer> idMap = toDatabase.generateID(myInputArrayList);

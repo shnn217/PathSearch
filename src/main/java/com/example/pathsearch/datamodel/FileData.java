@@ -12,8 +12,8 @@ import java.util.Iterator;
 public class FileData {
 
     private static FileData instance = new FileData();
-    private ArrayList<MyFolder> folderList = new ArrayList<>();
-    private ArrayList<MyFile> myFileList = new ArrayList<>();
+    private final ArrayList<MyFolder> folderList = new ArrayList<>();
+    private final ArrayList<MyFile> myFileList = new ArrayList<>();
     private static String filename = "file-structure.txt";
 
 
@@ -29,44 +29,40 @@ public class FileData {
             if (file.isDirectory()) {
                 MyFolder folderItem = new MyFolder(file.getName(), file.getCanonicalPath(), "d");
                 instance.folderList.add(folderItem);
-                System.out.printf(" dir: %s\t%s\n" ,file.getName(),file.getAbsolutePath());
+//                System.out.printf(" dir: %s\t%s\n" ,file.getName(),file.getAbsolutePath());
                 getFile(file);
             } else {
                 MyFile fileItem = new MyFile(file.getName(), file.getCanonicalPath(), "f");
                 instance.myFileList.add(fileItem);
-                System.out.printf("file: %s\t%s\n",file.getName(), file.getAbsolutePath());
+//                System.out.printf("file: %s\t%s\n",file.getName(), file.getAbsolutePath());
             }
         }
     }
 
     public void storeFileData() throws IOException {
         Path path = Paths.get("file-structure.txt");
-        BufferedWriter bw = Files.newBufferedWriter(path);
         //store Folder
-        try{
+        try (BufferedWriter bw = Files.newBufferedWriter(path)) {
+
             Iterator<MyFolder> folderIterator = folderList.iterator();
             Iterator<MyFile> fileIterator = myFileList.iterator();
-            while(folderIterator.hasNext() || fileIterator.hasNext()){
-                if (folderIterator.hasNext()){
+            while (folderIterator.hasNext() || fileIterator.hasNext()) {
+                if (folderIterator.hasNext()) {
                     MyFolder folderItem = folderIterator.next();
                     bw.write(String.format("%s\t%s",
                             folderItem.getType(),
                             folderItem.getPath()));
 
-                    bw.newLine();
-                }else {
+                } else {
                     MyFile fileItem = fileIterator.next();
                     bw.write(String.format("%s\t%s",
                             fileItem.getType(),
                             fileItem.getPath()));
 
-                    bw.newLine();
                 }
+                bw.newLine();
 
             }
-        }finally {
-            if (bw != null)
-                bw.close();
         }
 
     }
@@ -75,10 +71,10 @@ public class FileData {
 //
 //        return
 //    }
-    public static void main(String[] args) throws IOException {
-        File currentDir = new File("/Users/eric/test_dir"); // current directory
-        instance.getFile(currentDir);
-        instance.storeFileData();
-    }
+//    public static void main(String[] args) throws IOException {
+//        File currentDir = new File("/Users/eric/test_dir"); // current directory
+//        instance.getFile(currentDir);
+//        instance.storeFileData();
+//    }
 
 }

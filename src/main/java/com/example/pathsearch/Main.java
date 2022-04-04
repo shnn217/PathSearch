@@ -1,10 +1,12 @@
 package com.example.pathsearch;
 
+import com.example.pathsearch.datamodel.FileData;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 
 public class Main extends Application {
@@ -19,5 +21,18 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch();
+    }
+
+    @Override
+    public void init() throws Exception {
+        try{ //load the data in
+
+            File currentDir = new File("/Users/eric/test_dir");
+
+            FileData.getInstance().getFile(currentDir);
+            FileData.getInstance().storeFileData();
+        }catch (IOException e){
+            System.out.println(e.getMessage());
+        }
     }
 }

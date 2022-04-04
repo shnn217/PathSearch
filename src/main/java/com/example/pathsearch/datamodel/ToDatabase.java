@@ -16,12 +16,21 @@ import java.util.UUID;
 
 public class ToDatabase {
 
+//    private static ToDatabase instance = new ToDatabase();
+//
+//    public static ToDatabase getInstance(){
+//        return instance;
+//    }
+
     public HashMap<String, Integer> generateID(ArrayList<MyInput> o){
         HashMap<String, Integer> id = new HashMap<>();
         Integer j = 1;
+        int k = 1;
         for(MyInput i: o){
             if (id.containsKey(i.getName())){
-                id.put(i.getName() + j, j);
+                i.setName(i.getName() +"("+ k + ")");
+                id.put(i.getName(), j);
+                k++;
             }else{
                 id.put(i.getName(), j);
             }
@@ -87,7 +96,7 @@ public class ToDatabase {
         String query = "insert into node (id, name, parent_id, type, path) values (?,?,?,?,?)";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc3","root","password");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/file","root","password");
 
             PreparedStatement statement = connection.prepareStatement(query);
             int j = 0;
@@ -105,7 +114,7 @@ public class ToDatabase {
                 if (i.getParent_id() != null){
                     statement.setObject(3, i.getParent_id());
                 }else{
-                    statement.setObject(3, 0);
+                    statement.setObject(3, null);
                 }
                 statement.setString(4, i.getType());
                 statement.setString(5, i.getPath());
