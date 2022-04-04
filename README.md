@@ -20,13 +20,13 @@ mvn package exec:java
 
 - **Default GUI**
 
-![Search for file or folder path, type in the text field and click search buttom]([img]https://upload.cc/i1/2022/04/05/REhAeW.png[/img])
+![Search for file or folder path, type in the text field and click search buttom](https://upload.cc/i1/2022/04/05/REhAeW.png)
 
 **Search for file or folder path, type in the text field and click search buttom**
 
 - **Example**
 
-![]([img]https://upload.cc/i1/2022/04/05/niBqZe.png[/img])
+![](https://upload.cc/i1/2022/04/05/niBqZe.png)
 
 **Output the path that matches the name(substring) that type in
 
