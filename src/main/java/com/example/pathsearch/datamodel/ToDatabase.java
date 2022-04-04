@@ -16,7 +16,7 @@ import java.util.UUID;
 
 public class ToDatabase {
 
-    public static HashMap<String, Integer> generateID(ArrayList<MyInput> o){
+    public HashMap<String, Integer> generateID(ArrayList<MyInput> o){
         HashMap<String, Integer> id = new HashMap<>();
         Integer j = 1;
         for(MyInput i: o){
@@ -34,7 +34,7 @@ public class ToDatabase {
     }
 
 
-    public static ArrayList<MyInput> readFile() throws IOException {
+    public ArrayList<MyInput> readFile() throws IOException {
         Path path = Paths.get("file-structure.txt");
         BufferedReader br = Files.newBufferedReader(path);
         ArrayList<MyInput> myInputArrayList = new ArrayList<>();
@@ -66,7 +66,7 @@ public class ToDatabase {
         return myInputArrayList;
     }
 
-    public static ArrayList<FinalInput> generateFinalInput(ArrayList<MyInput> o, HashMap<String, Integer> map){
+    public ArrayList<FinalInput> generateFinalInput(ArrayList<MyInput> o, HashMap<String, Integer> map){
         ArrayList<FinalInput> finalInputArrayList = new ArrayList<>();
         for (MyInput i: o){
             if (map.containsKey(i.getPreD())){
@@ -83,7 +83,7 @@ public class ToDatabase {
         return finalInputArrayList;
     }
 
-    public static void insertArrayListofFinalInput(ArrayList<FinalInput> o){
+    public void insertArrayListofFinalInput(ArrayList<FinalInput> o){
         String query = "insert into node (id, name, parent_id, type, path) values (?,?,?,?,?)";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -124,10 +124,4 @@ public class ToDatabase {
         }
     }
 
-    public static void main(String[] args) throws IOException {
-        ArrayList<MyInput> test = readFile();
-        HashMap<String, Integer> idMap = generateID(test);
-        ArrayList<FinalInput> finalInputs = generateFinalInput(test, idMap);
-        insertArrayListofFinalInput(finalInputs);
-    }
 }

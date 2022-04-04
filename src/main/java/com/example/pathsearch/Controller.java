@@ -1,6 +1,9 @@
 package com.example.pathsearch;
 
+import com.example.pathsearch.datamodel.FileData;
 import com.example.pathsearch.datamodel.FinalInput;
+import com.example.pathsearch.datamodel.MyInput;
+import com.example.pathsearch.datamodel.ToDatabase;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -12,14 +15,19 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Path;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 
-public class Controller implements Initializable {
+public class Controller{
     @FXML
     private TextField textField;
     @FXML
@@ -52,8 +60,21 @@ public class Controller implements Initializable {
         }
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    public void initialize() throws IOException{
+        FileData fileData = new FileData();
+        ToDatabase toDatabase = new ToDatabase();
+        File currentDir = new File("/Users/eric/test_dir");
+        System.out.println("hihihihi");
+        fileData.getFile(currentDir);
+        fileData.storeFileData();
+        System.out.println("hihihihi");
+
+
+        ArrayList<MyInput> myInputArrayList = toDatabase.readFile();
+        HashMap<String, Integer> idMap = toDatabase.generateID(myInputArrayList);
+        ArrayList<FinalInput> finalInputs = toDatabase.generateFinalInput(myInputArrayList, idMap);
+        toDatabase.insertArrayListofFinalInput(finalInputs);
 
     }
 }

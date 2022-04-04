@@ -21,7 +21,7 @@ public class FileData {
         return instance;
     }
 
-    public static void getFile(File dir) throws IOException {
+    public void getFile(File dir) throws IOException {
 
         File[] files = dir.listFiles();
         assert files != null;
@@ -29,18 +29,18 @@ public class FileData {
             if (file.isDirectory()) {
                 MyFolder folderItem = new MyFolder(file.getName(), file.getCanonicalPath(), "d");
                 instance.folderList.add(folderItem);
-//                System.out.printf(" dir: %s\t%s\t%s\t%s\n",folderId, file.getName(), null, file.getAbsolutePath());
+                System.out.printf(" dir: %s\t%s\n" ,file.getName(),file.getAbsolutePath());
                 getFile(file);
             } else {
                 MyFile fileItem = new MyFile(file.getName(), file.getCanonicalPath(), "f");
                 instance.myFileList.add(fileItem);
-//                System.out.printf("file: %s\t%s\t%s\t%s\n",fileId, file.getName(), null, file.getAbsolutePath());
+                System.out.printf("file: %s\t%s\n",file.getName(), file.getAbsolutePath());
             }
         }
     }
 
     public void storeFileData() throws IOException {
-        Path path = Paths.get(filename);
+        Path path = Paths.get("file-structure.txt");
         BufferedWriter bw = Files.newBufferedWriter(path);
         //store Folder
         try{
@@ -77,7 +77,7 @@ public class FileData {
 //    }
     public static void main(String[] args) throws IOException {
         File currentDir = new File("/Users/eric/test_dir"); // current directory
-        getFile(currentDir);
+        instance.getFile(currentDir);
         instance.storeFileData();
     }
 

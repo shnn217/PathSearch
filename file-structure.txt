@@ -5,13 +5,21 @@ d	/Users/eric/test_dir/Documents
 d	/Users/eric/test_dir/Documents/Images
 d	/Users/eric/test_dir/Documents/Works
 d	/Users/eric/test_dir/Documents/Works/Accountant
+f	/Users/eric/test_dir/.DS_Store
+f	/Users/eric/test_dir/Program Files/.DS_Store
 f	/Users/eric/test_dir/Program Files/Mysql/Mysql2.txt
+f	/Users/eric/test_dir/Program Files/Mysql/.DS_Store
 f	/Users/eric/test_dir/Program Files/Mysql/Mysql.txt
+f	/Users/eric/test_dir/Program Files/Skype/.DS_Store
 f	/Users/eric/test_dir/Program Files/Skype/Readme.txt
 f	/Users/eric/test_dir/Program Files/Skype/Skype.txt
+f	/Users/eric/test_dir/Documents/.DS_Store
+f	/Users/eric/test_dir/Documents/Images/.DS_Store
 f	/Users/eric/test_dir/Documents/Images/image1.txt
 f	/Users/eric/test_dir/Documents/Images/image3.txt
 f	/Users/eric/test_dir/Documents/Images/image2.txt
 f	/Users/eric/test_dir/Documents/Works/Letter.txt
+f	/Users/eric/test_dir/Documents/Works/.DS_Store
 f	/Users/eric/test_dir/Documents/Works/Accountant/Accounting.txt
+f	/Users/eric/test_dir/Documents/Works/Accountant/.DS_Store
 f	/Users/eric/test_dir/Documents/Works/Accountant/AnnualReport.txt
